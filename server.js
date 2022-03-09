@@ -2,6 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
+import path from 'path';
 const bodyParser = require('body-parser');
 const router = require('./backend-server/routers/router');
 const userRouter =require('./backend-server/routers/userRouter')
@@ -66,6 +67,10 @@ app.use(router,userRouter,questionRouter, answerRouter,googleRouter);
 
 if(process.env.NODE_ENV === 'production'){
   app.use(express.static('frontend-web/build'));
+
+  app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'frontend-web', 'build', 'index.html'));
+  });
 }
 
 

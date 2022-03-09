@@ -8,7 +8,7 @@
     "build": "cd frontend-web && npm run build",
     "install-frontend-web": "cd frontend-web && npm install",
     "frontend-web": "cd frontend-web && npm start",
-    "heroku-postbuild": "npm run install-frontend-web && npm run build",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix frontend-web && npm run build --prefix frontend-web",
     "start": "node server.js",
     "dev": "concurrently -n 'server,frontend-web' -c 'red,green'  \"nodemon server.js\" \"npm run frontend-web\""
   },
@@ -34,6 +34,7 @@
     "passport-google-oauth20": "^2.0.0",
     "passport-jwt": "^4.0.0",
     "passport-local-mongoose": "^6.1.0",
+    "path": "^0.12.7",
     "validator": "^13.7.0"
   }
 }
