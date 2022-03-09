@@ -2,7 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
-import path from 'path';
+const path =require('path');
 const bodyParser = require('body-parser');
 const router = require('./backend-server/routers/router');
 const userRouter =require('./backend-server/routers/userRouter')
