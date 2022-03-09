@@ -3,24 +3,24 @@ const express = require('express');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
 const bodyParser = require('body-parser');
-const router = require('./routers/router');
-const userRouter =require('./routers/userRouter')
-const questionRouter =require('./routers/questionRouter');
-const answerRouter =require('./routers/answerRouter');
-const googleRouter =require('./routers/googleRouter')
-const User2=require('./models/socialModel');
+const router = require('./backend-server/routers/router');
+const userRouter =require('./backend-server/routers/userRouter')
+const questionRouter =require('./backend-server/routers/questionRouter');
+const answerRouter =require('./backend-server/routers/answerRouter');
+const googleRouter =require('./backend-server/routers/googleRouter')
+const User2=require('./backend-server/models/socialModel');
 
 const cookieSession =require('cookie-session');
 const session =require('express-session');
-const passport =require('passport');
+const passport =require('passport/lib');
 // const passportLocalMongoose = require('passport-local-mongoose');
 // const GoogleStrategy = require('passport-google-oauth20').Strategy;
 // const findOrCreate = require('mongoose-findorcreate');
 // const User =require('./models/userModel');
 
-require('./config/mongoose');
+require('./backend-server/config/mongoose');
 
-require('./config/passport-setup');
+require('./backend-server/config/passport-setup');
 
 
 const app =express();

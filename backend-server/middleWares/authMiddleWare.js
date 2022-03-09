@@ -1,10 +1,10 @@
 const jwt = require('jsonwebtoken');
 // const session =require('cookie-session');
-const passport =require('passport');
+const passport =require('passport/lib');
 
 const User = require('../models/userModel');
 const Social =require('../models/socialModel');
-const session  = require('passport');
+const session  = require('passport/lib');
 
 
 const checkUser = async (req, res, next) => {

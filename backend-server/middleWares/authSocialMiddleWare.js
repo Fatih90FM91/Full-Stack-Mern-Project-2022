@@ -1,9 +1,9 @@
 
-const passport =require('passport');
-const GoogleStrategy = require('passport-google-oauth20').Strategy;
+const passport =require('passport/lib');
+const GoogleStrategy = require('passport-google-oauth20/lib').Strategy;
 const Social=require('../models/socialModel');
 
-const session  = require('passport');
+const session  = require('passport/lib');
 
 
 

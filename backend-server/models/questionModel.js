@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema =require('mongoose');
-const  User =require('../models/userModel');
-const  User2 =require('../models/socialModel');
+const  User =require('./userModel');
+const  User2 =require('./socialModel');
 const mySchema = mongoose.Schema;
 
 const questionSchema = new mySchema({

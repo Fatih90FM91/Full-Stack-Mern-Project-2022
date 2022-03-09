@@ -1,6 +1,6 @@
 
 const express = require('express');
-const passport =require('passport');
+const passport =require('passport/lib');
 const User =require('../models/userModel');
 
 
