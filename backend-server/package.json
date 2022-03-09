@@ -5,6 +5,9 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "build":"cd frontend-web && npm run build",
+    "install-frontend-web":"cd frontend-web && npm install",
+    "heroku-postbuild":"npm run install-frontend-web && npm run build",
     "start": "nodemon ejsserver.js"
   },
   "author": "",

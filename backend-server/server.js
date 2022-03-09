@@ -24,6 +24,7 @@ require('./config/passport-setup');
 
 
 const app =express();
+const PORT= process.env.PORT || 8080;
 
 // app.use(session({
 //     secret:"our little secret",
@@ -63,8 +64,10 @@ app.set('view engine', 'ejs');
 app.use(router,userRouter,questionRouter, answerRouter,googleRouter);
 
 
+if(process.env.NODE_ENV === 'production'){
+  app.use(express.static('frontend-web/build'));
+}
 
 
 
-
-app.listen(8080, console.log('The server is listening now on port 8080!!'));
+app.listen(PORT, console.log(`The server is listening now on port ${PORT}!!`));
