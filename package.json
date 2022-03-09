@@ -5,17 +5,19 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build" :"cd frontend-web && npm run build",
-    "install-frontend-web" :"cd frontend-web && npm install",
-    "frontend-web" :"cd frontend-web && npm start",
-    "heroku-postbuild" :"npm run install-frontend-web && npm run build",
-    "start": "node server.js"
+    "build": "cd frontend-web && npm run build",
+    "install-frontend-web": "cd frontend-web && npm install",
+    "frontend-web": "cd frontend-web && npm start",
+    "heroku-postbuild": "npm run install-frontend-web && npm run build",
+    "start": "node server.js",
+    "dev": "concurrently -n 'server,frontend-web' -c 'red,green'  \"nodemon server.js\" \"npm run frontend-web\""
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.0.1",
     "body-parser": "^1.19.1",
+    "concurrently": "^7.0.0",
     "cookie-parser": "^1.4.6",
     "cookie-session": "^2.0.0",
     "cors": "^2.8.5",
