@@ -9,7 +9,7 @@
     "install-frontend-web" :"cd frontend-web && npm install",
     "frontend-web" :"cd frontend-web && npm start",
     "heroku-postbuild" :"npm run install-frontend-web && npm run build",
-    "start": "nodemon ejs server.js"
+    "start": "node server.js"
   },
   "author": "",
   "license": "ISC",
