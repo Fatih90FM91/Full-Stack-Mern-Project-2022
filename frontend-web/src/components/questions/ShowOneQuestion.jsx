@@ -25,7 +25,7 @@ export default class ShowOneQuestion extends Component {
         // console.log(this.props.match.params.id);
         let id =this.props.match.params.id;
         myId=id;
-        axiosInstance.get(`http://localhost:8080/show-question/${id}`)
+        axios.get(`http://localhost:8080/show-question/${id}`)
         .then(res => {
          console.log(res);
           console.log(res.data[0].question);
@@ -61,7 +61,7 @@ export default class ShowOneQuestion extends Component {
   
       
       
-        axiosInstance.post(`http://localhost:8080/answerQuestion/${myId}`, data) //there is a bug in here  i need to solve it
+        axios.post(`http://localhost:8080/answerQuestion/${myId}`, data) //there is a bug in here  i need to solve it
               .then( res => {
              
                  console.log(res);

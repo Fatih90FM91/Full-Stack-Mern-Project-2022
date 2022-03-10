@@ -15,7 +15,7 @@ export default class Users extends Component {
         console.log(currentToken);
         if(currentToken){
            
-            axiosInstance.get("http://localhost:8080/all-users")
+            axios.get("http://localhost:8080/all-users")
                 .then( response => {
                     console.log(response);
                     this.setState({ result: response.data })

@@ -25,7 +25,7 @@ export default class Question extends Component {
         const currentToken = localStorage.getItem('user')
         console.log(currentToken );
         if(currentToken){
-          axiosInstance.get("http://localhost:8080/showQuestion")
+          axios.get("http://localhost:8080/showQuestion")
                 .then( response => {
                 
                     this.setState({ result2: response.data })
@@ -47,7 +47,7 @@ export default class Question extends Component {
     
             
         }
-        axiosInstance.post("http://localhost:8080/askQuestion", data)
+        axios.post("http://localhost:8080/askQuestion", data)
               .then( res => {
 
                 // console.log(res.data);

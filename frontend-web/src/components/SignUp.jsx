@@ -42,7 +42,7 @@ class SignUp extends Component {
       password: this.state.password,
       
     }
-    axiosInstance.post("http://localhost:8080/signup", data)
+    axios.post("http://localhost:8080/signup", data)
           .then( response => {
             
             this.setState({ result: response.data })
