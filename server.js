@@ -80,13 +80,14 @@ app.use(router,userRouter,questionRouter, answerRouter,googleRouter);
 // }
 
 const __dirname1 = path.resolve();
-
+//my bug is starting in this poin----------------------------------------------------
 if (process.env.NODE_ENV === "production") {
   console.log("i am here guys");
-  app.use(express.static(path.join(__dirname1, "/frontend-web/build")));
+  // app.use(express.static(path.join(__dirname1, "/frontend-web/build")));
+  app.use(express.static(path.join("frontend-web/build")));
 
   app.get("*", (req, res) =>
-    res.sendFile(path.resolve(__dirname1, "frontend-web", "build", "index.html"))
+    res.sendFile(path.resolve(__dirname, "frontend-web", "build", "index.html"))
   );
 } else {
   app.get("/", (req, res) => {
