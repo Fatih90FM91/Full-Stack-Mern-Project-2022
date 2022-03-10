@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import {Link} from 'react-router-dom';
 import './Question.css'
+import { axiosInstance } from '../../config';
 
 export default class ShowQuestions extends Component {
     constructor(props){
@@ -17,7 +18,7 @@ export default class ShowQuestions extends Component {
         const currentToken = localStorage.getItem('user')
         console.log(currentToken );
         if(currentToken){
-            axios.get("http://localhost:8080/showQuestion")
+          axiosInstance.get("http://localhost:8080/showQuestion")
                 .then( response => {
                  console.log(response);
                     this.setState({ result2: response.data })

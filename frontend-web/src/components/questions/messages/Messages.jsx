@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import './Message.css'
+import { axiosInstance } from '../../../config';
 
 
 
@@ -18,7 +19,7 @@ export default class Messages extends Component {
   componentDidMount = () =>{
   console.log(this.props);
   let id =this.props.match.params.id;
-    axios.get(`http://localhost:8080/`)
+  axiosInstance.get(`http://localhost:8080/`)
     .then( res => {
 
       console.log(res.data);

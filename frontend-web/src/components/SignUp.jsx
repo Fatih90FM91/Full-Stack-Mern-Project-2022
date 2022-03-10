@@ -7,6 +7,7 @@ import axios from 'axios';
 
 import './Form.css';
 import { Route } from 'react-router-dom';
+import { axiosInstance } from '../config';
 
 
 
@@ -41,7 +42,7 @@ class SignUp extends Component {
       password: this.state.password,
       
     }
-    axios.post("http://localhost:8080/signup", data)
+    axiosInstance.post("http://localhost:8080/signup", data)
           .then( response => {
             
             this.setState({ result: response.data })

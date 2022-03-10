@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import './Users.css';
+import { axiosInstance } from '../../../config';
 
 export default class Users extends Component {
     constructor(props){
@@ -14,7 +15,7 @@ export default class Users extends Component {
         console.log(currentToken);
         if(currentToken){
            
-            axios.get("http://localhost:8080/all-users")
+            axiosInstance.get("http://localhost:8080/all-users")
                 .then( response => {
                     console.log(response);
                     this.setState({ result: response.data })

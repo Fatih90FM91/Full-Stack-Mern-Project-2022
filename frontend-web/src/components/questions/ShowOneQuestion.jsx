@@ -3,6 +3,7 @@ import axios from 'axios';
 import {Link} from 'react-router-dom';
 import Messages from './messages/Messages';
 import './Question.css'
+import { axiosInstance } from '../../config';
 
 let myId ="";
 
@@ -24,7 +25,7 @@ export default class ShowOneQuestion extends Component {
         // console.log(this.props.match.params.id);
         let id =this.props.match.params.id;
         myId=id;
-        axios.get(`http://localhost:8080/show-question/${id}`)
+        axiosInstance.get(`http://localhost:8080/show-question/${id}`)
         .then(res => {
          console.log(res);
           console.log(res.data[0].question);
@@ -60,7 +61,7 @@ export default class ShowOneQuestion extends Component {
   
       
       
-        axios.post(`http://localhost:8080/answerQuestion/${myId}`, data) //there is a bug in here  i need to solve it
+        axiosInstance.post(`http://localhost:8080/answerQuestion/${myId}`, data) //there is a bug in here  i need to solve it
               .then( res => {
              
                  console.log(res);

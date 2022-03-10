@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import axios from 'axios';
 
 import './Form.css';
+import { axiosInstance } from '../config';
 
 export default class Login extends Component {
  constructor(props){
@@ -26,7 +27,7 @@ export default class Login extends Component {
       password: this.state.password,
       
     }
-    axios.post("http://localhost:8080/login", data)
+    axiosInstance.post("http://localhost:8080/login", data)
           .then( response => {
             let token = response.data.token;
             console.log(token);

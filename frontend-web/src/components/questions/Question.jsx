@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Form, TextArea ,Input ,Label , Button  } from 'semantic-ui-react';
 import axios from 'axios';
 import './Question.css'
+import { axiosInstance } from '../../config';
 
 export default class Question extends Component {
     constructor(props){
@@ -24,7 +25,7 @@ export default class Question extends Component {
         const currentToken = localStorage.getItem('user')
         console.log(currentToken );
         if(currentToken){
-            axios.get("http://localhost:8080/showQuestion")
+          axiosInstance.get("http://localhost:8080/showQuestion")
                 .then( response => {
                 
                     this.setState({ result2: response.data })
@@ -46,7 +47,7 @@ export default class Question extends Component {
     
             
         }
-        axios.post("http://localhost:8080/askQuestion", data)
+        axiosInstance.post("http://localhost:8080/askQuestion", data)
               .then( res => {
 
                 // console.log(res.data);

@@ -1,4 +1,4 @@
-require('dotenv').config();
+require("dotenv").config({ path: "./config.env" });
 const express = require('express');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
@@ -10,6 +10,7 @@ const questionRouter =require('./backend-server/routers/questionRouter');
 const answerRouter =require('./backend-server/routers/answerRouter');
 const googleRouter =require('./backend-server/routers/googleRouter')
 const User2=require('./backend-server/models/socialModel');
+const connectDB = require("./backend-server/config/mongoose");
 
 const cookieSession =require('cookie-session');
 const session =require('express-session');
@@ -21,11 +22,12 @@ const passport =require('passport/lib');
 
 require('./backend-server/config/mongoose');
 
-require('./backend-server/config/passport-setup');
+// require('./backend-server/config/passport-setup');
 
+connectDB();
 
 const app =express();
-const PORT= process.env.PORT || 8080;
+const PORT= process.env.PORT;
 
 // app.use(session({
 //     secret:"our little secret",
@@ -65,13 +67,23 @@ app.set('view engine', 'ejs');
 app.use(router,userRouter,questionRouter, answerRouter,googleRouter);
 
 
-if(process.env.NODE_ENV === 'production'){
-  app.use(express.static('frontend-web/build'));
+// if(process.env.NODE_ENV === 'production'){
+//   app.use(express.static(path.join(__dirname,'/frontend-web/build')));
+// //frontend-web//frontend-web
+//   app.get('*', (req, res) => {
+//     res.sendFile(path.join(__dirname, 'frontend-web', 'build', 'index.html'));
+//   });
+// }else{
+//   app.get('/',(req,res) =>{
+//     res.send('Api Running');
+//   })
+// }
 
-  app.get('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, 'frontend-web', 'build', 'index.html'));
-  });
-}
+app.use(express.static(path.join(__dirname, "/frontend-web/build")));
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '/frontend-web/build', 'index.html'));
+});
 
 
 
