@@ -119,7 +119,7 @@ class SignUp extends Component {
             Sign up
           </button><br />
           <span className='form-input-login'>
-            Already have an account? Login <a href='#'>here</a>
+            Already have an account? Login <a href='/login'>here</a>
           </span>
         </form>
           <div className='right-side-img'>
