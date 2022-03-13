@@ -66,6 +66,12 @@ app.set('view engine', 'ejs');
 
 app.use(router,userRouter,questionRouter, answerRouter,googleRouter);
 
+// Step 1:
+app.use(express.static(path.resolve(__dirname, "./frontend-web/build")));
+// Step 2:
+app.get("*", function (request, response) {
+  response.sendFile(path.resolve(__dirname, "./frontend-web/build", "index.html"));
+});
 
 // if(process.env.NODE_ENV === 'production'){
 //   app.use(express.static(path.join(__dirname,'/frontend-web/build')));
@@ -79,22 +85,22 @@ app.use(router,userRouter,questionRouter, answerRouter,googleRouter);
 //   })
 // }
 
-const __dirname1 = path.resolve();
+// const __dirname1 = path.resolve();
 //my bug is starting in this poin----------------------------------------------------
-if (process.env.NODE_ENV === "production") {
-  console.log("i am here guys");
+// if (process.env.NODE_ENV == "production") {
+//   console.log("i am here guys");
   // app.use(express.static(path.join(__dirname1, "/frontend-web/build")));
-  app.use(express.static(path.join("frontend-web/build")));
+//   app.use(express.static(path.join("/frontend-web/build")));
 
-  app.get("*", (req, res) =>
-    res.sendFile(path.resolve(__dirname, "frontend-web", "build", "index.html"))
-  );
-} else {
-  app.get("/", (req, res) => {
-    console.log("oooo yessss ");
-    res.send("API is running..");
-  });
-}
+//   app.get("*", (req, res) =>
+//     res.sendFile(path.resolve(__dirname, "frontend-web", "build", "index.html"))
+//   );
+// } else {
+//   app.get("/", (req, res) => {
+//     console.log("oooo yessss ");
+//     res.send("API is running..");
+//   });
+// }
 
 
 app.listen(PORT, console.log(`The server is listening now on port ${PORT}!!`));
