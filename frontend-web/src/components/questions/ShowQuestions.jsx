@@ -18,7 +18,7 @@ export default class ShowQuestions extends Component {
         const currentToken = localStorage.getItem('user')
         console.log(currentToken );
         if(currentToken){
-          axios.get("http://localhost:8080/showQuestion")
+          axios.get("http://localhost:5000/showQuestion")
                 .then( response => {
                  console.log(response);
                     this.setState({ result2: response.data })
