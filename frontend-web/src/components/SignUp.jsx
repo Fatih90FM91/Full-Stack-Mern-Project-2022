@@ -41,7 +41,7 @@ class SignUp extends Component {
       password: this.state.password,
       
     }
-    axiosInstance.post(`http://localhost:${process.env.PORT}/signup`, data)
+    axiosInstance.post(`http://localhost:5000/signup`, data)
           .then( response => {
             
             this.setState({ result: response.data })

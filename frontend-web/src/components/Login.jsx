@@ -27,7 +27,7 @@ export default class Login extends Component {
       password: this.state.password,
       
     }
-    axiosInstance.post(`http://localhost:${process.env.PORT}/login`, data)
+    axiosInstance.post(`http://localhost:5000/login`, data)
           .then( response => {
             let token = response.data.token;
             console.log(token);
