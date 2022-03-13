@@ -3,13 +3,12 @@ import { withRouter } from 'react-router'
 import { push } from 'react-router-redux'
 import { useHistory } from 'react-router-dom';
 
+
 import axios from 'axios';
 
 import './Form.css';
 import { Route } from 'react-router-dom';
 import { axiosInstance } from '../config';
-
-const PORT= process.env.PORT;
 
 class SignUp extends Component {
  constructor(props){
@@ -42,7 +41,7 @@ class SignUp extends Component {
       password: this.state.password,
       
     }
-    axios.post(`http://localhost:${PORT}/signup`, data)
+    axiosInstance.post(`http://localhost:5000/signup`, data)
           .then( response => {
             
             this.setState({ result: response.data })
