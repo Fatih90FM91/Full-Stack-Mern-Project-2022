@@ -67,23 +67,23 @@ app.set('view engine', 'ejs');
 app.use(router,userRouter,questionRouter, answerRouter,googleRouter);
 
 // Step 1:
-app.use(express.static(path.resolve(__dirname, "./frontend-web/build")));
+// app.use(express.static(path.resolve(__dirname, "./frontend-web/build")));
 // Step 2:
-app.get("*", function (request, response) {
-  response.sendFile(path.resolve(__dirname, "./frontend-web/build", "index.html"));
-});
+// app.get("*", function (request, response) {
+//   response.sendFile(path.resolve(__dirname, "./frontend-web/build", "index.html"));
+// });
 
-// if(process.env.NODE_ENV === 'production'){
-//   app.use(express.static(path.join(__dirname,'/frontend-web/build')));
-// //frontend-web//frontend-web
-//   app.get('*', (req, res) => {
-//     res.sendFile(path.join(__dirname, 'frontend-web', 'build', 'index.html'));
-//   });
-// }else{
-//   app.get('/',(req,res) =>{
-//     res.send('Api Running');
-//   })
-// }
+if(process.env.NODE_ENV === 'production'){
+  app.use(express.static(path.join(__dirname,'/frontend-web/build')));
+//frontend-web//frontend-web
+  app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'frontend-web', 'build', 'index.html'));
+  });
+}else{
+  app.get('/',(req,res) =>{
+    res.send('Api Running');
+  })
+}
 
 // const __dirname1 = path.resolve();
 //my bug is starting in this poin----------------------------------------------------
