@@ -19,7 +19,7 @@ export default class Messages extends Component {
   componentDidMount = () =>{
   console.log(this.props);
   let id =this.props.match.params.id;
-  axiosInstance.get(`http://localhost:5000/`)
+  axios.get(`http://localhost:5000/`)
     .then( res => {
 
       console.log(res.data);
