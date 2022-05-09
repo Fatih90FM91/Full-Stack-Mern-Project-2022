@@ -6,8 +6,7 @@
 
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.js",
-    
+    "start": "concurrently -n 'server,frontend-web' -c 'red,green'  \"nodemon server.js\" \"npm run frontend-web\"",
     "install-frontend-web": "cd frontend-web && npm install",
     "frontend-web": "cd frontend-web && npm start",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix frontend-web && npm run build --prefix frontend-web",
