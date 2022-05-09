@@ -61,7 +61,7 @@ export default class ShowOneQuestion extends Component {
   
       
       
-        axiosInstance.post(`http://localhost:5000/answerQuestion/${myId}`, data) //there is a bug in here  i need to solve it
+        axios.post(`http://localhost:5000/answerQuestion/${myId}`, data) //there is a bug in here  i need to solve it
               .then( res => {
              
                  console.log(res);
