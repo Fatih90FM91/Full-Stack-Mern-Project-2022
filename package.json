@@ -3,15 +3,13 @@
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
-
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "concurrently -n 'server,frontend-web' -c 'red,green'  \"nodemon server.js\" \"npm run frontend-web\"",
+    "start": "nodemon server.js",
     "install-frontend-web": "cd frontend-web && npm install",
     "frontend-web": "cd frontend-web && npm start",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix frontend-web && npm run build --prefix frontend-web",
     "dev": "concurrently -n 'server,frontend-web' -c 'red,green'  \"nodemon server.js\" \"npm run frontend-web\""
-    
   },
   "author": "",
   "license": "ISC",
@@ -26,7 +24,7 @@
     "cookie-session": "^2.0.0",
     "cors": "^2.8.5",
     "dotenv": "^16.0.0",
-    "ejs": "^3.1.6",
+    "ejs": "^3.1.7",
     "express": "^4.17.2",
     "express-session": "^1.17.2",
     "google-auth-library": "^7.12.0",
