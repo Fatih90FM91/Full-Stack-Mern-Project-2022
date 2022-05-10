@@ -27,7 +27,7 @@ export default class Login extends Component {
       password: this.state.password,
       
     }
-    axios.post(`http://localhost:5000/login`, data)
+    axios.post(`https://fullstackmernprojectfatih.herokuapp.com//login`, data)
           .then( response => {
             let token = response.data.token;
             console.log(token);
