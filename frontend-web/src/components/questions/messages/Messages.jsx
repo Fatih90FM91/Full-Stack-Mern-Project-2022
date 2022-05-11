@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import './Message.css'
-import { axiosInstance } from '../../../config';
 
+const devENV = process.env.NODE_ENV !== "production";
+
+const {REACT_APP_DEV_API  , REACT_APP_PROD_API} = process.env;
 
 
 
@@ -19,7 +21,7 @@ export default class Messages extends Component {
   componentDidMount = () =>{
   console.log(this.props);
   let id =this.props.match.params.id;
-  axios.get(`http://localhost:5000/`)
+  axios.get(`${devENV ? REACT_APP_DEV_API : REACT_APP_PROD_API}/`) //there is some problem for deploying..!!!
     .then( res => {
 
       console.log(res.data);

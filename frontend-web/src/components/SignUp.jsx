@@ -6,10 +6,13 @@ import axios from 'axios';
 
 import './Form.css';
 import { Route } from 'react-router-dom';
-import { axiosInstance } from '../config';
-import { PORT } from '../config/Port';
 
-console.log(process.env.PORT);
+const devENV = process.env.NODE_ENV !== "production";
+
+const {REACT_APP_DEV_API  , REACT_APP_PROD_API} = process.env;
+
+
+
 class SignUp extends Component {
  constructor(props){
    super(props);
@@ -41,7 +44,7 @@ class SignUp extends Component {
       password: this.state.password,
       
     }
-    axios.post(`http://localhost:5000/signup`, data)
+    axios.post(`${devENV ? REACT_APP_DEV_API : REACT_APP_PROD_API}/signup`, data)
           .then( response => {
             
             this.setState({ result: response.data })

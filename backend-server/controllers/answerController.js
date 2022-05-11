@@ -34,7 +34,7 @@ const showAnswerHomePage =(req,res) => {
             .then( answers => {
                 // res.redirect('/homePage', {pageTitle: 'Show Home Question', answers})
                 
-                res.status(200).send(answers);
+               res.status(200).send(answers);
             })
             .catch(err => console.log(err))
    

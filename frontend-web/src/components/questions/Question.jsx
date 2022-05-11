@@ -2,7 +2,12 @@ import React, { Component } from 'react';
 import { Form, TextArea ,Input ,Label , Button  } from 'semantic-ui-react';
 import axios from 'axios';
 import './Question.css'
-import { axiosInstance } from '../../config';
+
+
+const devENV = process.env.NODE_ENV !== "production";
+
+const {REACT_APP_DEV_API  , REACT_APP_PROD_API} = process.env;
+
 
 export default class Question extends Component {
     constructor(props){
@@ -25,7 +30,7 @@ export default class Question extends Component {
         const currentToken = localStorage.getItem('user')
         console.log(currentToken );
         if(currentToken){
-          axios.get(`http://localhost:5000/showQuestion`)
+          axios.get(`${devENV ? REACT_APP_DEV_API : REACT_APP_PROD_API}/showQuestion`)
                 .then( response => {
                 
                     this.setState({ result2: response.data })
@@ -47,7 +52,7 @@ export default class Question extends Component {
     
             
         }
-        axios.post(`http://localhost:5000/askQuestion`, data)
+        axios.post(`${devENV ? REACT_APP_DEV_API : REACT_APP_PROD_API}/askQuestion`, data)
               .then( res => {
 
                 // console.log(res.data);

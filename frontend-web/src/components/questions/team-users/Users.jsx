@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import './Users.css';
-import { axiosInstance } from '../../../config';
+
+const devENV = process.env.NODE_ENV !== "production";
+
+const {REACT_APP_DEV_API  , REACT_APP_PROD_API} = process.env;
+
 
 export default class Users extends Component {
     constructor(props){
@@ -15,7 +19,7 @@ export default class Users extends Component {
         console.log(currentToken);
         if(currentToken){
            
-            axios.get("http://localhost:5000/all-users")
+            axios.get(`${devENV ? REACT_APP_DEV_API : REACT_APP_PROD_API}/all-users`)
                 .then( response => {
                     console.log(response);
                     this.setState({ result: response.data })

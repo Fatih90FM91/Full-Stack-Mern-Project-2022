@@ -2,7 +2,12 @@ import React, { Component } from 'react'
 import axios from 'axios';
 
 import './Form.css';
-import { axiosInstance } from '../config';
+
+
+const devENV = process.env.NODE_ENV !== "production";
+
+const {REACT_APP_DEV_API  , REACT_APP_PROD_API} = process.env;
+
 
 export default class Login extends Component {
  constructor(props){
@@ -27,7 +32,7 @@ export default class Login extends Component {
       password: this.state.password,
       
     }
-    axios.post(`https://fullstackmernprojectfatih.herokuapp.com//login`, data)
+    axios.post(`${devENV ? REACT_APP_DEV_API : REACT_APP_PROD_API}/login`, data)
           .then( response => {
             let token = response.data.token;
             console.log(token);

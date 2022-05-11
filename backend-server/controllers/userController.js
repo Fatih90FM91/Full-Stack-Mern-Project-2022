@@ -108,6 +108,7 @@ const login = async (req,res) => {
 
             res.cookie('jwtToken', token, {httpOnly: true, maxAge: maxAge * 1000});
             res.status(200).send({user,token});
+            //res.status(201).json({user,token})
             // json({user:user._id})
 
         } catch (err) {

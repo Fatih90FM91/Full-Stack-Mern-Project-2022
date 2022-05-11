@@ -8,7 +8,10 @@ const getHomeFnc =(req,res) =>{
     Answer.find().populate('user_id', ['username'])
         .then( answers => {
             // res.render('homePage', {pageTitle: 'Show Question' ,answers })
-            res.status(200).send(answers)
+            //res.status(200).send(answers)
+            res.status(200).send("there is an issue in heree!!!")
+            //res.status(201).json(answers)
+
         })
         .catch(err => console.log(err))
 }
