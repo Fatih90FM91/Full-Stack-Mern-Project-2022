@@ -6,7 +6,7 @@
 //     .then(() => console.log('Connected to DB ...'))
 //     .catch(err => console.log(err))
 
-const {MONGODBATLAS , MONGOCOMPAS} =process.env;
+const {MONGOURI , MONGOCOMPAS} =process.env;
 const result ="";
 
     const mongoose = require("mongoose");
@@ -15,7 +15,7 @@ const connectDB = async () => {
  // const DATABASE = MONGODBATLAS==undefined ? MONGOCOMPAS : MONGODBATLAS;
 
   try {
-    await mongoose.connect(process.env.MONGODB_URI || MONGODBATLAS, {
+    await mongoose.connect(process.env.MONGODB_URI || MONGOURI, {
       useNewUrlParser: true,
       // useFindAndModify: true,
       // useUnifiedTopology: true,
