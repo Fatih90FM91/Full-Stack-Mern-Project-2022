@@ -6,13 +6,16 @@
 //     .then(() => console.log('Connected to DB ...'))
 //     .catch(err => console.log(err))
 
-
+const {MONGODBATLAS , MONGOCOMPAS} =process.env;
+const result ="";
 
     const mongoose = require("mongoose");
 
 const connectDB = async () => {
+ // const DATABASE = MONGODBATLAS==undefined ? MONGOCOMPAS : MONGODBATLAS;
+
   try {
-    await mongoose.connect(process.env.MONGODB_URI || process.env.MONGO_URI, {
+    await mongoose.connect(process.env.MONGODB_URI || MONGODBATLAS, {
       useNewUrlParser: true,
       // useFindAndModify: true,
       // useUnifiedTopology: true,
@@ -22,6 +25,10 @@ const connectDB = async () => {
     console.log("MongoDB Connection Success 👍");
   } catch (error) {
     console.log("MongoDB Connection Failed 💥");
+    console.log(error)
+    //result = error.MongooseServerSelectionError
+    console.log(result);
+
     process.exit(1);
   }
 };
