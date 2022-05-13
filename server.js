@@ -42,7 +42,7 @@ const PORT= process.env.PORT || 5000;
 
 
   app.use(cors({
-    origin: ['http://localhost:3000'],
+    origin: ['http://localhost:3000' || 'https://fullstackmernprojectfatih.herokuapp.com'],
     methods: ["GET","HEAD","PUT","POST","DELETE"],
     preflightContinue: false,
     optionsSursccessStatus: 204,
