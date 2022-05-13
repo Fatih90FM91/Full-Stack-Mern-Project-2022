@@ -46,8 +46,15 @@ const PORT= process.env.PORT || 5000;
     methods: ["GET","HEAD","PUT","POST","DELETE"],
     preflightContinue: false,
     optionsSursccessStatus: 204,
-    credentials:true
+    credentials:true,
+    
 }));
+
+
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  next();
+});
 
 
 app.use(passport.initialize());
@@ -59,6 +66,7 @@ app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 app.use(cookieParser());
 app.set('view engine', 'ejs');
+
 
 
 
