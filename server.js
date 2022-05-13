@@ -42,7 +42,7 @@ const PORT= process.env.PORT || 5000;
 
 
   app.use(cors({
-    origin: ['http://localhost:3000' || 'https://fullstackmernprojectfatih.herokuapp.com'],//Access-Control-Allow-Origin , at this point,cannot allow to use my heroku-API.. 
+    origin: ['https://fullstackmernprojectfatih.herokuapp.com'],//Access-Control-Allow-Origin , at this point,cannot allow to use my heroku-API.. 
     methods: ["GET","HEAD","PUT","POST","DELETE"],
     preflightContinue: false,
     optionsSursccessStatus: 204,
