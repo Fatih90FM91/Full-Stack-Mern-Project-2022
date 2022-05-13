@@ -42,20 +42,20 @@ const PORT= process.env.PORT || 5000;
 
 
   app.use(cors({
-    origin: ['http://localhost:3000' ||'https://627ec3d998013014539f99b3--loquacious-seahorse-3b512a.netlify.app'],//Access-Control-Allow-Origin , at this point,cannot allow to use my heroku-API.. 
+    origin: ['http://localhost:3000' || 'https://627ec3d998013014539f99b3--loquacious-seahorse-3b512a.netlify.app'],//Access-Control-Allow-Origin , at this point,cannot allow to use my heroku-API.. 
     methods: ["GET","HEAD","PUT","POST","DELETE"],
     preflightContinue: false,
-    optionsSursccessStatus: 200,
+    optionsSursccessStatus: 204,
     credentials:true,
     
 }));
 
 
-app.all('/', function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "X-Requested-With");
-  next()
-});
+// app.all('/', function(req, res, next) {
+//   res.header("Access-Control-Allow-Origin", "*");
+//   res.header("Access-Control-Allow-Headers", "X-Requested-With");
+//   next()
+// });
 
 app.use(passport.initialize());
 app.use(passport.session());
