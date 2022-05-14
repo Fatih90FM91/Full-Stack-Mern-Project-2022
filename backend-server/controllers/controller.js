@@ -9,7 +9,7 @@ const getHomeFnc =(req,res) =>{
         .then( answers => {
             // res.render('homePage', {pageTitle: 'Show Question' ,answers })
             //res.status(200).send(answers)
-            res.status(200).send("there is an issue in heree!!!")
+            res.status(200).send(answers)
             //res.status(201).json(answers)
 
         })
