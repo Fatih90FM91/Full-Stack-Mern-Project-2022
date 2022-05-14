@@ -42,7 +42,7 @@ const PORT= process.env.PORT || 5000;
 
 
   app.use(function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "https://627ec3d998013014539f99b3--loquacious-seahorse-3b512a.netlify.app.TLD"); // update to match the domain you will make the request from
+    res.header("Access-Control-Allow-Origin", "https://627ec3d998013014539f99b3--loquacious-seahorse-3b512a.netlify.app"); // update to match the domain you will make the request from
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
   });
